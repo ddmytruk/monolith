@@ -32,6 +32,15 @@ services:
     ports:
       - ${POSTGRES_PORT}:5432
 
+  redis:
+    build: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ${REDIS_PATH}:/data
+
 volumes:
   pgdata:
+    driver: local
+  redisdata:
     driver: local
